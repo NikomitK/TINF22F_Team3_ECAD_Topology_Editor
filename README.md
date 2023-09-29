@@ -1,5 +1,5 @@
 ﻿# TINF22F_Team3_ECAD_Topology_Editor
-  ## Tasks
+  ## Requirements
   * Identification of the main use cases and their associated usability concepts.
   * Creation of SVG graphics with connection modeling.
   * Utilization of the SVGs in the AntV Editor.
