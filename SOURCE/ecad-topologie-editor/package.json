@@ -9,7 +9,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:ci": "ng test  --watch=false --browsers=ChromeHeadlessCustom",
-    "build:ci": "npm ci && npm run clean && npm test:ci && npm run build"
+    "build:ci": "npm ci && npm run clean && npm run test:ci && npm run build"
 
   },
   "private": true,
