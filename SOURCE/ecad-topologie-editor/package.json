@@ -5,7 +5,7 @@
     "ng": "ng",
     "clean": "rimraf ./dist",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --base-href /TINF22F_Team3_ECAD_Topology_Editor/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:ci": "ng test  --watch=false --browsers=ChromeHeadlessCustom",
