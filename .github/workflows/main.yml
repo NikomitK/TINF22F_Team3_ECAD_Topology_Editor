@@ -4,6 +4,8 @@ on:
     branches:
       - main
       - development
+    paths:
+      SOURCE/ecad-topologie-editor/** 
 permissions:
   contents: write
 
