@@ -2,6 +2,7 @@ import { Component, NgModule  } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
 
 interface server{
   value : string;
@@ -10,7 +11,7 @@ interface server{
 @Component({
   selector: 'ete-header',
   standalone: true,
-  imports: [MatToolbarModule, MatFormFieldModule, MatSelectModule],
+  imports: [MatToolbarModule, MatFormFieldModule, MatSelectModule, MatInputModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss'
 })

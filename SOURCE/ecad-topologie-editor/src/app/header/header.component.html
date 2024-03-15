@@ -1,17 +1,26 @@
-<mat-toolbar>
-    <span>AAS-Topologie Editor</span>
+<mat-toolbar color="primary">
+    <mat-toolbar-row >
+        <span>AAS-Topologie Editor</span>
 
-    <span class="example-fill-remaining-space"></span>
-
-    <span>
-        <mat-form-field>
-            <mat-select placeholder="Server">
-            @for (server of servers; track $index) {
-                <mat-option [value]="server.value">
-                    {{server.viewValue}}
-                    </mat-option>
-            }
-            </mat-select>
-        </mat-form-field>
-    </span>
+        <span class="example-fill-remaining-space"></span>
+    
+        <span>
+            <mat-form-field id="server-select">
+                <mat-select placeholder="Server">
+                @for (server of servers; track $index) {
+                    <mat-option [value]="server.value">
+                        {{server.viewValue}}
+                        </mat-option>
+                }
+                </mat-select>
+            </mat-form-field>
+        </span>
+    </mat-toolbar-row>
+    <mat-toolbar-row id="nav-bar">
+        <form class="item-search">
+            <mat-form-field class="example-full-width">
+              <input matInput placeholder="Favorite food" value="Sushi" >
+            </mat-form-field>
+          </form>
+    </mat-toolbar-row>
 </mat-toolbar>
