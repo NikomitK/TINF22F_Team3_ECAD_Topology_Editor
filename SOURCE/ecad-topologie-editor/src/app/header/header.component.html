@@ -1,27 +1,34 @@
 <mat-toolbar color="primary">
-    <mat-toolbar-row >
-        <span>AAS-Topologie Editor</span>
-
-        <span class="example-fill-remaining-space"></span>
-    
-        <span>
-            <mat-form-field id="server-select" subscriptSizing="dynamic">
-                <mat-select placeholder="Server" >
-                @for (server of servers; track $index) {
-                    <mat-option [value]="server.value">
-                        {{server.viewValue}}
-                        </mat-option>
-                }
-                </mat-select>
-            </mat-form-field>
-        </span>
+    <mat-toolbar-row class="mat-elevation-z20 toolbar-padding">
+      <span id="toolbar-row-one">
+          <h1 id="page-header">AAS-Topologie Editor</h1>
+  
+          <mat-form-field id="server-select" subscriptSizing="dynamic">
+            <mat-label>Server</mat-label>
+            <mat-select>
+              @for (server of servers; track $index) {
+              <mat-option [value]="server">
+                {{ server }}
+              </mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+  
+      </span>
     </mat-toolbar-row>
     <mat-toolbar-row id="nav-bar">
-        <form class="item-search">
-            <mat-form-field class="example-full-width" subscriptSizing="dynamic">
-              <input matInput placeholder="Favorite food">
-              <mat-icon matSuffix aria-hidden="false" aria-label="Example home icon" fontIcon="search" id="search_icon"></mat-icon>
-            </mat-form-field>
-          </form>
+      <form class="item-search">
+        <mat-form-field class="w-100" subscriptSizing="dynamic">
+          <input matInput placeholder="Favorite food" />
+          <mat-icon
+            matSuffix
+            aria-hidden="false"
+            aria-label="Example home icon"
+            fontIcon="search"
+            id="search_icon"
+          ></mat-icon>
+        </mat-form-field>
+      </form>
     </mat-toolbar-row>
-</mat-toolbar>
+  </mat-toolbar>
+  
