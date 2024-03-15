@@ -1,2 +1,17 @@
-<p>header works!</p>
-{{test}}
+<mat-toolbar>
+    <span>AAS-Topologie Editor</span>
+
+    <span class="example-fill-remaining-space"></span>
+
+    <span>
+        <mat-form-field>
+            <mat-select placeholder="Server">
+            @for (server of servers; track $index) {
+                <mat-option [value]="server.value">
+                    {{server.viewValue}}
+                    </mat-option>
+            }
+            </mat-select>
+        </mat-form-field>
+    </span>
+</mat-toolbar>
