@@ -1,0 +1,29 @@
+.example-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+
+  }
+
+#nav-bar{
+    background-color: rgb(201, 201, 201);
+    display: flex;
+    align-items: center;
+    min-height: fit-content;
+}
+#server-select{
+    margin-top: 22px;
+}
+.item-search {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+    margin-top: 22px;
+}
+.example-full-width {
+    width: 100%;
+}
+#search_icon{
+    color: black;
+
+}
