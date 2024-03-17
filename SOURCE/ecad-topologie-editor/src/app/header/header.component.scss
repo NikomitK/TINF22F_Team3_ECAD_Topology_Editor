@@ -1,23 +1,41 @@
-.example-fill-remaining-space {
-    /* This fills the remaining space, by using flexbox. 
-       Every toolbar row uses a flexbox row layout. */
-    flex: 1 1 auto;
-  }
+@import "../../styles.scss";
 
-#nav-bar{
-    background-color: rgb(201, 201, 201);
-    display: flex;
-    align-items: center;
-    min-height: fit-content;
+@mixin padding-tb($padding) {
+    padding-top: $padding;
+    padding-bottom: $padding;
 }
+
+.toolbar-padding {
+    @include padding-tb(3rem);
+}
+
+
+#toolbar-row-one {
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#nav-bar {
+  background-color: $light-gray;
+  display: flex;
+  align-items: center;
+  min-height: fit-content;
+  @include padding-tb(2.2rem);
+}
+
 .item-search {
-    min-width: 150px;
-    max-width: 500px;
-    width: 100%;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
 }
-.example-full-width {
-    width: 100%;
+
+#search_icon {
+  color: black;
 }
-#search_icon{
-    color: black;
+
+#page-header {
+    font-size: 2em;
 }
