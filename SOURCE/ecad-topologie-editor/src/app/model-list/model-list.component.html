@@ -1,1 +1,20 @@
-<p>model-list works!</p>
+<ul cdkListbox [cdkListboxValue]="currentItem" [cdkListboxCompareWith]="compareId"
+    (cdkListboxValueChange)="selectItem($event.value)" class="listbox">
+
+    @for (model of itemlist; track $index) {
+    <li [cdkOption]="model" class="option">
+
+        <mat-card class="">
+            <img src="" alt="" mat-card-image>
+            <mat-card-header>
+                {{ model?.name }}
+            </mat-card-header>
+            <mat-card-content>
+                {{ model?.description }}
+            </mat-card-content>
+        </mat-card>
+
+    </li>
+    }
+
+</ul>
