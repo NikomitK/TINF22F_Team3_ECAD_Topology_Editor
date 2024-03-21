@@ -1,5 +1,4 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { ListItemComponent } from '../list-item/list-item.component';
 import { CdkListboxModule, CdkListbox, CdkOption } from '@angular/cdk/listbox';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ListItemData } from '../shared/list-item-data';
@@ -9,7 +8,6 @@ import { MatCardModule } from '@angular/material/card';
     selector: 'ete-model-list',
     standalone: true,
     imports: [
-        ListItemComponent,
         CdkListboxModule,
         ScrollingModule,
         CdkListbox,
