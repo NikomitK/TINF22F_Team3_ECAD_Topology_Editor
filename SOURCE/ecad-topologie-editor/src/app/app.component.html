@@ -2,4 +2,5 @@
 <div id="bottom-container">
     <ete-model-list class="float-left" #selectedItem (itemSelected)="switchShownModel(selectedItem.currentItem[0])"></ete-model-list>
     <div>{{ shownModel.name }}</div>
+    <ete-detailed-view></ete-detailed-view>
 </div>
