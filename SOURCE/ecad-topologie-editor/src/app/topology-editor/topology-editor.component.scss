@@ -1,0 +1,25 @@
+:host {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 25% 75%;
+    overflow: visible;
+}
+#editor {
+    width: 100%;
+    height: 100%;
+}
+
+.topology-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s;
+    max-width: fit-content;
+}
