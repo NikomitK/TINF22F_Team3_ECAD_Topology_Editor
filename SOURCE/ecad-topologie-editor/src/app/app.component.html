@@ -1,11 +1,12 @@
 <ete-header></ete-header>
-@if (editorMode){
-<ete-topology-editor></ete-topology-editor>
-}
-@else {
+
 <div id="bottom-container">
     <ete-model-list class="float-left" #selectedItem
         (itemSelected)="switchShownModel(selectedItem.currentItem[0])"></ete-model-list>
+    @if (editorMode){
+    <ete-topology-editor></ete-topology-editor>
+    }
+    @else {
     <div>{{ shownModel.name }}</div>
+    }
 </div>
-}

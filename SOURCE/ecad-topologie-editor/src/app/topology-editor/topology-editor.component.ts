@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { ModelListComponent } from '../model-list/model-list.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { timeout } from 'rxjs';
 
 
 @Component({
