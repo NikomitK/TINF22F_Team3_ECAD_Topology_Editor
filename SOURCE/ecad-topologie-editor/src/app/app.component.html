@@ -1,5 +1,5 @@
-<ete-header></ete-header>
+<ete-header (itemSearched)="filterItems($event)"></ete-header>
 <div id="bottom-container">
-    <ete-model-list class="float-left" #selectedItem (itemSelected)="switchShownModel(selectedItem.currentItem[0])"></ete-model-list>
-    <ete-detailed-view [shownModel]="shownModel"></ete-detailed-view>
+    <ete-model-list class="float-left" #selectedItem (itemSelected)="switchShownModel(selectedItem.currentItem)" [itemlist]="itemList" [currentItem]="shownModel"></ete-model-list>
+    <ete-detailed-view [shownModel]="shownModel" ></ete-detailed-view>
 </div>

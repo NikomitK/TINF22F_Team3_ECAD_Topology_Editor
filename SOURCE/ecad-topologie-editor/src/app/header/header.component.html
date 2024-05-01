@@ -17,9 +17,9 @@
       </span>
     </mat-toolbar-row>
     <mat-toolbar-row id="nav-bar">
-      <form class="item-search">
+      <form (ngSubmit)="searchItem()" class="item-search">
         <mat-form-field class="w-100" subscriptSizing="dynamic">
-          <input matInput placeholder="Favorite food" />
+          <input matInput name="filter" [(ngModel)]="filter" placeholder="Favorite food" />
           <mat-icon
             matSuffix
             aria-hidden="false"
