@@ -1,30 +1,45 @@
-import { Component } from '@angular/core';
+import { Component, Input, input } from '@angular/core';
 import { ModelListComponent } from '../model-list/model-list.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { NgForOf } from '@angular/common';
 
 
 @Component({
     selector: 'ete-topology-editor',
     standalone: true,
-    imports: [ModelListComponent, DragDropModule],
+    imports: [ModelListComponent, DragDropModule, NgForOf
+    ],
     templateUrl: './topology-editor.component.html',
     styleUrl: './topology-editor.component.scss'
 })
 
 export class TopologyEditorComponent {
+    @Input()
+    topologyItems: any[] = [];
 
-    topologyItems = [
-        { id: 1, name: 'Item 1' },
-        { id: 2, name: 'Item 2' },
-        { id: 3, name: 'Item 3' },
-        { id: 4, name: 'Item 4' },
-        { id: 5, name: 'Item 5' },
-        { id: 6, name: 'Item 6' },
-        { id: 7, name: 'Item 7' }
-    ];
-    
+    @Input()
+    timestamp: number[] = [];
+
     constructor() {
-
+        
     }
+    
+        del(event: any) {
+            console.log(event);
+            const button = event.target;
+            const id = button.id;
+            const element = document.getElementById(id);
+            if (element) {
+                element.remove();
+            }
+        }
+    
 
+    
+    
+   
 }
+
+
+
+

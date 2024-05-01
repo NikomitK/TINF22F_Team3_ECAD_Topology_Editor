@@ -16,8 +16,15 @@ export class AppComponent {
     title = 'ecad-topologie-editor';
 
     editorMode = true;
-
+    
     shownModel: ListItemData = {
+        id: 1,
+        name: 'First Item',
+        description: 'This is the first demo item',
+        price: 10,
+        quantity: 1
+    };
+    newItem: ListItemData = {
         id: 1,
         name: 'First Item',
         description: 'This is the first demo item',
@@ -28,4 +35,13 @@ export class AppComponent {
     switchShownModel(listItemData: ListItemData) {
         this.shownModel = listItemData;
     }
+    addItemToEditor(listItemData: ListItemData) {
+        console.log('Adding item to editor' + listItemData.name);
+        this.topologyItems.push(listItemData);
+        this.timestamp.push(Date.now());
+    }
+    timestamp: number[] = [];
+    topologyItems: any[] = [
+    ];
+    
 }

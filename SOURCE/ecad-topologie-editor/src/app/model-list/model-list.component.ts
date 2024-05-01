@@ -3,6 +3,8 @@ import { CdkListboxModule, CdkListbox, CdkOption } from '@angular/cdk/listbox';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ListItemData } from '../shared/list-item-data';
 import { MatCardModule } from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import { MatButton } from '@angular/material/button';
 
 @Component({
     selector: 'ete-model-list',
@@ -12,7 +14,9 @@ import { MatCardModule } from '@angular/material/card';
         ScrollingModule,
         CdkListbox,
         CdkOption,
-        MatCardModule
+        MatCardModule,
+        MatIconModule,
+        MatButton
     ],
     templateUrl: './model-list.component.html',
     styleUrl: './model-list.component.scss',
@@ -24,6 +28,21 @@ export class ModelListComponent {
     selectItem(listItemData: readonly ListItemData[]) {
         this.currentItem = listItemData;
         this.itemSelected.emit(listItemData[0]);
+    }
+
+    @Output()
+    itemToAdd = new EventEmitter<ListItemData>();
+
+    @Output()
+    timestamp: number[] = [];
+
+    addModel(listItemData: readonly ListItemData[]) {
+        this.currentItem = listItemData;
+        console.log('Adding item to editor' + JSON.stringify(listItemData) );
+        this.itemToAdd.emit(listItemData[0]);
+        this.timestamp.push(Date.now())
+        console.log('Timestamp updated to ' + this.timestamp);
+
     }
 
     itemlist: ListItemData[] = [
@@ -125,4 +144,7 @@ export class ModelListComponent {
     compareId(item1: ListItemData, item2: ListItemData) {
         return item1.id === item2.id;
     }
+
 }
+
+

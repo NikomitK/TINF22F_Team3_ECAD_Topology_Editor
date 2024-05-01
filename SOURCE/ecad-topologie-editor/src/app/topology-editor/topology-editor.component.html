@@ -1,8 +1,12 @@
 <div id="editor" cdkDragBoundary>
-    @for (topologyItem of topologyItems; track 'id'){
-        <div class="topology-item" cdkDrag cdkDragBoundary="#editor">
-            <h3>{{topologyItem.id}}</h3>
-            <p>{{topologyItem.name}}</p>
-        </div>
+    @if(topologyItems){    
+            <ng-container *ngFor="let topologyItem of topologyItems; let i = index">
+                <div class="topology-item" cdkDrag cdkDragBoundary="#editor" [id]="timestamp[i]">
+                    <h3>{{topologyItem.id}}</h3>
+                    <p>{{topologyItem.name}}</p>
+                    <button type="button" name="test" [id]="timestamp[i]" (click)="del($event)">test</button>
+                </div>
+            </ng-container>
     }
+    
 </div>

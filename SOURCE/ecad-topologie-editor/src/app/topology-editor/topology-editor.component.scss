@@ -1,8 +1,8 @@
 :host {
     height: 100%;
     display: grid;
-    grid-template-columns: 25% 75%;
     overflow: visible;
+    overflow-x: hidden;
 }
 #editor {
     width: 100%;
@@ -21,5 +21,7 @@
     cursor: pointer;
     background-color: #f9f9f9;
     transition: background-color 0.3s;
-    max-width: fit-content;
+    width: 69pt;
+    height:69pt;
+    position: absolute;
 }

@@ -10,7 +10,10 @@
                 {{ model?.name }}
             </mat-card-header>
             <mat-card-content>
-                {{ model?.description }}
+                <div id="card-content">
+                    {{ model?.description }}
+                    <button name="add_item" type="button" (click)="addModel([model])"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="arrow_forward"></mat-icon></button>
+                </div>
             </mat-card-content>
         </mat-card>
 
