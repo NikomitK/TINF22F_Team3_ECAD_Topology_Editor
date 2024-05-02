@@ -4,7 +4,7 @@
                 <div class="topology-item" cdkDrag cdkDragBoundary="#editor" [id]="timestamp[i]">
                     <h3>{{topologyItem.id}}</h3>
                     <p>{{topologyItem.name}}</p>
-                    <button type="button" name="test" [id]="timestamp[i]" (click)="del($event)">test</button>
+                    <button type="button" name="test" [id]="timestamp[i]" (click)="del($event)"><mat-icon aria-hidden="false" aria-label="delete from editor" fontIcon="delete"></mat-icon></button>
                 </div>
             </ng-container>
     }
