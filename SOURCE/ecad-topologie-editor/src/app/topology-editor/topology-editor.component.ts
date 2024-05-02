@@ -2,7 +2,7 @@ import { Component, Input, input } from '@angular/core';
 import { ModelListComponent } from '../model-list/model-list.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { NgForOf } from '@angular/common';
-
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
     selector: 'ete-topology-editor',
