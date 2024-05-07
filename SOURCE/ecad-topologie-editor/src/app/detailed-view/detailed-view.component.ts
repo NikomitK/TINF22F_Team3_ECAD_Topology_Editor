@@ -21,6 +21,4 @@ export class DetailedViewComponent {
         this.test = aasService.getAasModel();
     }
 
-
-
 }
