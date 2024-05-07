@@ -5,16 +5,18 @@ import { ModelListComponent } from './model-list/model-list.component';
 import { TopologyEditorComponent } from './topology-editor/topology-editor.component';
 
 import { ListItemData } from './shared/list-item-data';
+import { AasServiceService } from './shared/aas-service.service';
+import { filter } from 'rxjs';
 
 @Component({
     selector: 'app-root',
     standalone: true,
-    imports: [RouterOutlet, HeaderComponent, ModelListComponent, TopologyEditorComponent],
-
+    imports: [RouterOutlet, HeaderComponent, ModelListComponent, TopologyEditorComponent, DetailedViewComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss'
 })
 export class AppComponent {
+
     title = 'ecad-topologie-editor';
 
     editorMode = true;
@@ -34,6 +36,8 @@ export class AppComponent {
         quantity: 1
     };
 
+    itemList: ListItemData[] = [];
+
     switchShownModel(listItemData: ListItemData) {
         this.shownModel = listItemData;
     }
@@ -45,5 +49,13 @@ export class AppComponent {
     timestamp: number[] = [];
     topologyItems: any[] = [
     ];
+
+    filterItems(filter: string) {
+        this.itemList = this.service.getItems(filter);
+    }
+
+    constructor(private service: AasServiceService){
+        this.filterItems('');
+    }
     
 }
