@@ -2,7 +2,7 @@
 
 <div id="bottom-container">
     <ete-model-list class="float-left" #selectedItem
-        (itemSelected)="switchShownModel(selectedItem.currentItem[0])" #itemToAdd (itemToAdd)="addItemToEditor(itemToAdd.currentItem[0])"></ete-model-list>
+        (itemSelected)="switchShownModel(selectedItem.currentItem)" #itemToAdd (itemToAdd)="addItemToEditor(itemToAdd.currentItem)"></ete-model-list>
     
     @if (editorMode){
     <ete-topology-editor [topologyItems]="topologyItems" [timestamp]="timestamp"></ete-topology-editor>

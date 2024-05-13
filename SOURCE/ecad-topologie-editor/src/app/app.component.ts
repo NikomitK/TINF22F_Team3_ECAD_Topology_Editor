@@ -3,10 +3,10 @@ import { RouterOutlet } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
 import { ModelListComponent } from './model-list/model-list.component';
 import { TopologyEditorComponent } from './topology-editor/topology-editor.component';
+import { DetailedViewComponent } from './detailed-view/detailed-view.component';
 
 import { ListItemData } from './shared/list-item-data';
 import { AasServiceService } from './shared/aas-service.service';
-import { filter } from 'rxjs';
 
 @Component({
     selector: 'app-root',
@@ -19,7 +19,7 @@ export class AppComponent {
 
     title = 'ecad-topologie-editor';
 
-    editorMode = true;
+    editorMode = false;
     
     shownModel: ListItemData = {
         id: 1,

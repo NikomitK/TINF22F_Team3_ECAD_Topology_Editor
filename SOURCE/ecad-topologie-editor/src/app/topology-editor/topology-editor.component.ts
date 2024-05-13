@@ -7,8 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 @Component({
     selector: 'ete-topology-editor',
     standalone: true,
-    imports: [ModelListComponent, DragDropModule, NgForOf
-    ],
+    imports: [ModelListComponent, DragDropModule, NgForOf, MatIconModule],
     templateUrl: './topology-editor.component.html',
     styleUrl: './topology-editor.component.scss'
 })

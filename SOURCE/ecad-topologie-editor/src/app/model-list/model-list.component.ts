@@ -40,7 +40,7 @@ export class ModelListComponent {
     }
 
     addModel(listItemData: readonly ListItemData[]) {
-        this.currentItem = listItemData;
+        this.currentItem = listItemData[0];
         console.log('Adding item to editor' + JSON.stringify(listItemData) );
         this.itemToAdd.emit(listItemData[0]);
         this.timestamp.push(Date.now())
