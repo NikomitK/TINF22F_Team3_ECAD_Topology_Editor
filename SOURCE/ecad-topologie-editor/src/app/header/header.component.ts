@@ -34,4 +34,5 @@ export class HeaderComponent {
     this.itemSearched.emit(this.filter);
   }
 
+
 }

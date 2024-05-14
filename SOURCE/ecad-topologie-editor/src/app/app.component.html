@@ -1,9 +1,10 @@
-<ete-header (itemSearched)="filterItems($event)"></ete-header>
+<ete-header (itemSearched)="filterItems($event)" [editorMode]="editorMode" (modeChange)="editorMode = !editorMode"></ete-header>
 
 <div id="bottom-container">
     <ete-model-list class="float-left" #selectedItem
         (itemSelected)="switchShownModel($event)" #itemToAdd (itemToAdd)="addItemToEditor(itemToAdd.currentItem)" [itemlist]="itemList" [currentItem]="shownModel" [editormode]="editorMode"></ete-model-list>
     
+
     @if (editorMode){
     <ete-topology-editor [topologyItems]="topologyItems" [timestamp]="timestamp"></ete-topology-editor>
     }
