@@ -1,10 +1,11 @@
-import { Component, EventEmitter, NgModule, Output } from '@angular/core';
+import { Component, EventEmitter, Input, NgModule, Output } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'ete-header',
@@ -15,7 +16,8 @@ import { FormsModule } from '@angular/forms';
     MatSelectModule,
     MatInputModule,
     MatIconModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
@@ -27,11 +29,9 @@ export class HeaderComponent {
   servers: string[] = ['test', 'test2', 'test3']
   
   filter: string = '';
-
+  
   searchItem(){
     this.itemSearched.emit(this.filter);
   }
-  
-
 
 }

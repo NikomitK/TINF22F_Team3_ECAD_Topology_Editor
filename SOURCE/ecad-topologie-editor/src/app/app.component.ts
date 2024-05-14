@@ -39,11 +39,12 @@ export class AppComponent {
     itemList: ListItemData[] = [];
 
     switchShownModel(listItemData: ListItemData) {
+        console.log('switched to ' + JSON.stringify(listItemData))
         this.shownModel = listItemData;
     }
     addItemToEditor(listItemData: ListItemData) {
-        console.log('Adding item to editor' + listItemData.name);
         this.topologyItems.push(listItemData);
+        console.log(JSON.stringify(this.topologyItems))
         this.timestamp.push(Date.now());
     }
     timestamp: number[] = [];
@@ -56,6 +57,10 @@ export class AppComponent {
 
     constructor(private service: AasServiceService){
         this.filterItems('');
+    }
+
+    switchMode() {
+        this.editorMode = !this.editorMode;
     }
     
 }

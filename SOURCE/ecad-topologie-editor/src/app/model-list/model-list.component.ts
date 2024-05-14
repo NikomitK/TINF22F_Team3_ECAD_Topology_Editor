@@ -22,6 +22,7 @@ import { MatButton } from '@angular/material/button';
     styleUrl: './model-list.component.scss',
 })
 export class ModelListComponent {
+
     @Output()
     itemSelected = new EventEmitter<ListItemData>();
     
@@ -35,21 +36,37 @@ export class ModelListComponent {
     @Output()
     timestamp: number[] = [];
 
-    selectItem(listItemData: readonly ListItemData[]) {
+    @Input()
+    editormode!: boolean;
+
+    selectItem(listItemData: readonly ListItemData[]): void {
         this.itemSelected.emit(listItemData[0]);
     }
 
-    addModel(listItemData: readonly ListItemData[]) {
+    addModel(listItemData: readonly ListItemData[]) : void{
         this.currentItem = listItemData[0];
-        console.log('Adding item to editor' + JSON.stringify(listItemData) );
         this.itemToAdd.emit(listItemData[0]);
         this.timestamp.push(Date.now())
-        console.log('Timestamp updated to ' + this.timestamp);
-
     }
 
-    compareId(item1: ListItemData, item2: ListItemData) {
+    downloadModel(listItemData : readonly ListItemData[]) : void{
+        const blob = new Blob([JSON.stringify(listItemData)], { type: 'application/json' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'data.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+    }
+
+    compareId(item1: ListItemData, item2: ListItemData) : boolean {
         return item1.id === item2.id;
+    }
+    
+    getFontIcon(): string {
+        return this.editormode ? 'arrow_forward' : 'download'
     }
 
 }
