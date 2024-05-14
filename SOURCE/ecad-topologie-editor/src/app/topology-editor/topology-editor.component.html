@@ -2,6 +2,10 @@
     @if(topologyItems){    
             <ng-container *ngFor="let topologyItem of topologyItems; let i = index">
                 <div class="topology-item" cdkDrag cdkDragBoundary="#editor" [id]="timestamp[i]">
+                    <button type="button" class="connection-point" id="connection-point-0">O</button>
+                    <button type="button" class="connection-point" id="connection-point-1">O</button>
+                    <button type="button" class="connection-point" id="connection-point-2">O</button>
+                    <button type="button" class="connection-point" id="connection-point-3">O</button>
                     <h3>{{topologyItem.id}}</h3>
                     <p>{{topologyItem.name}}</p>
                     <button type="button" name="test" [id]="timestamp[i]" (click)="del($event)">
