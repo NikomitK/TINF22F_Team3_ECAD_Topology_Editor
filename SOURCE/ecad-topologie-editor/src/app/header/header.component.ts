@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Input, NgModule, Output } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Input,
+  NgModule,
+  Output,
+} from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -17,22 +23,31 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatIconModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
 
-  @Output() itemSearched = new EventEmitter<string>()
+  @Input()
+  editorMode: boolean = false;
 
-  servers: string[] = ['test', 'test2', 'test3']
-  
+  @Output()
+  modeChange = new EventEmitter<boolean>();
+
+  @Output() itemSearched = new EventEmitter<string>();
+
+  servers: string[] = ['test', 'test2', 'test3'];
+
   filter: string = '';
-  
-  searchItem(){
+
+  searchItem() {
     this.itemSearched.emit(this.filter);
   }
 
-
+  changeMode() {
+    this.editorMode = !this.editorMode;
+    this.modeChange.emit(this.editorMode);
+  }
 }

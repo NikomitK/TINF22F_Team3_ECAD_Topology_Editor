@@ -7,60 +7,63 @@ import { DetailedViewComponent } from './detailed-view/detailed-view.component';
 
 import { ListItemData } from './shared/list-item-data';
 import { AasServiceService } from './shared/aas-service.service';
+import { timestamp } from 'rxjs';
 
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    imports: [RouterOutlet, HeaderComponent, ModelListComponent, TopologyEditorComponent, DetailedViewComponent],
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.scss'
+  selector: 'app-root',
+  standalone: true,
+  imports: [
+    RouterOutlet,
+    HeaderComponent,
+    ModelListComponent,
+    TopologyEditorComponent,
+    DetailedViewComponent,
+  ],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss',
 })
 export class AppComponent {
+  title = 'ecad-topologie-editor';
+  
+  editorMode = false;
 
-    title = 'ecad-topologie-editor';
+  shownModel: ListItemData = {
+    id: 1,
+    name: 'First Item',
+    description: 'This is the first demo item',
+    price: 10,
+    quantity: 1,
+  };
+  newItem: ListItemData = {
+    id: 1,
+    name: 'First Item',
+    description: 'This is the first demo item',
+    price: 10,
+    quantity: 1,
+  };
 
-    editorMode = false;
-    
-    shownModel: ListItemData = {
-        id: 1,
-        name: 'First Item',
-        description: 'This is the first demo item',
-        price: 10,
-        quantity: 1
-    };
-    newItem: ListItemData = {
-        id: 1,
-        name: 'First Item',
-        description: 'This is the first demo item',
-        price: 10,
-        quantity: 1
-    };
+  itemList: ListItemData[] = [];
 
-    itemList: ListItemData[] = [];
+  switchShownModel(listItemData: ListItemData) {
+    this.shownModel = listItemData;
+  }
+  addItemToEditor(listItemData: ListItemData) {
+    this.topologyItems.push(listItemData);
+    this.timestamp.push(Date.now());
+  }
+  timestamp: number[] = [];
+  topologyItems: any[] = [];
 
-    switchShownModel(listItemData: ListItemData) {
-        console.log('switched to ' + JSON.stringify(listItemData))
-        this.shownModel = listItemData;
-    }
-    addItemToEditor(listItemData: ListItemData) {
-        this.topologyItems.push(listItemData);
-        console.log(JSON.stringify(this.topologyItems))
-        this.timestamp.push(Date.now());
-    }
-    timestamp: number[] = [];
-    topologyItems: any[] = [
-    ];
+  filterItems(filter: string) {
+    this.itemList = this.service.getItems(filter);
+  }
+  switchMode() {
+    this.editorMode = !this.editorMode;
+    this.topologyItems = [];
+    this.timestamp = [];
+  }
 
-    filterItems(filter: string) {
-        this.itemList = this.service.getItems(filter);
-    }
-
-    constructor(private service: AasServiceService){
-        this.filterItems('');
-    }
-
-    switchMode() {
-        this.editorMode = !this.editorMode;
-    }
-    
+  constructor(private service: AasServiceService) {
+    this.filterItems('');
+  }
 }

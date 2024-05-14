@@ -1,4 +1,4 @@
-<ete-header (itemSearched)="filterItems($event)" [editorMode]="editorMode" (modeChange)="editorMode = !editorMode"></ete-header>
+<ete-header (itemSearched)="filterItems($event)" [editorMode]="editorMode" (modeChange)="switchMode()"></ete-header>
 
 <div id="bottom-container">
     <ete-model-list class="float-left" #selectedItem
@@ -9,6 +9,8 @@
     <ete-topology-editor [topologyItems]="topologyItems" [timestamp]="timestamp"></ete-topology-editor>
     }
     @else {
-    <ete-detailed-view [shownModel]="shownModel"></ete-detailed-view>
+
+    <ete-detailed-view [shownModel]="shownModel"></ete-detailed-view>   
+
     }
 </div>

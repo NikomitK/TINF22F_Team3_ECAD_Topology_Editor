@@ -3,23 +3,23 @@ import { CdkListboxModule, CdkListbox, CdkOption } from '@angular/cdk/listbox';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ListItemData } from '../shared/list-item-data';
 import { MatCardModule } from '@angular/material/card';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatButton } from '@angular/material/button';
 
 @Component({
-    selector: 'ete-model-list',
-    standalone: true,
-    imports: [
-        CdkListboxModule,
-        ScrollingModule,
-        CdkListbox,
-        CdkOption,
-        MatCardModule,
-        MatIconModule,
-        MatButton
-    ],
-    templateUrl: './model-list.component.html',
-    styleUrl: './model-list.component.scss',
+  selector: 'ete-model-list',
+  standalone: true,
+  imports: [
+    CdkListboxModule,
+    ScrollingModule,
+    CdkListbox,
+    CdkOption,
+    MatCardModule,
+    MatIconModule,
+    MatButton,
+  ],
+  templateUrl: './model-list.component.html',
+  styleUrl: './model-list.component.scss',
 })
 export class ModelListComponent {
 
@@ -70,5 +70,3 @@ export class ModelListComponent {
     }
 
 }
-
-
