@@ -22,8 +22,10 @@
   background-color: $light-gray;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   min-height: fit-content;
   @include padding-tb(2.2rem);
+
 }
 
 .item-search {
