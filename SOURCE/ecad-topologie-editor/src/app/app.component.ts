@@ -7,6 +7,7 @@ import { DetailedViewComponent } from './detailed-view/detailed-view.component';
 
 import { ListItemData } from './shared/list-item-data';
 import { AasServiceService } from './shared/aas-service.service';
+import { timestamp } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -55,6 +56,11 @@ export class AppComponent {
 
   filterItems(filter: string) {
     this.itemList = this.service.getItems(filter);
+  }
+  switchMode() {
+    this.editorMode = !this.editorMode;
+    this.topologyItems = [];
+    this.timestamp = [];
   }
 
   constructor(private service: AasServiceService) {
