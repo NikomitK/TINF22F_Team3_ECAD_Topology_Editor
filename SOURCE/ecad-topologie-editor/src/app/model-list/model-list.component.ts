@@ -69,8 +69,5 @@ export class ModelListComponent {
         return this.editormode ? 'arrow_forward' : 'download'
     }
 
-    constructor() {
-        new LeaderLine(document.getElementById('connection-point-1'), document.getElementById('connection-point-2'));
-    }
 
 }
