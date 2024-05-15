@@ -30,7 +30,6 @@ export class TopologyEditorComponent {
     }
     
     del(event: any) : void{
-        console.log(event);
         const button = event.target;
         const id = button.id;
         const element = document.getElementById(id);
