@@ -25,14 +25,16 @@ export class TopologyEditorComponent {
   @Input()
   timestamp: number[] = [];
 
-  constructor() {}
-
-  del(event: any) {
-    const button = event.target;
-    const id = button.id;
-    const element = document.getElementById(id);
-    if (element) {
-      element.remove();
+  constructor() {
+        
     }
-  }
+    
+    del(event: any) : void{
+        const button = event.target;
+        const id = button.id;
+        const element = document.getElementById(id);
+        if (element) {
+            element.remove();
+        }
+
 }

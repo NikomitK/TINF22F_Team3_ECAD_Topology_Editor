@@ -24,7 +24,7 @@ import { timestamp } from 'rxjs';
 })
 export class AppComponent {
   title = 'ecad-topologie-editor';
-
+  
   editorMode = false;
 
   shownModel: ListItemData = {

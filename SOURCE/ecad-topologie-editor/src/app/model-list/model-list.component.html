@@ -1,20 +1,20 @@
 <ul cdkListbox [cdkListboxValue]="[currentItem]" [cdkListboxCompareWith]="compareId"
     (cdkListboxValueChange)="selectItem($event.value)" class="listbox">
 
-    @if(itemlist.length){
+    @if(itemlist && itemlist.length){
         @for (model of itemlist; track $index) {
         <li [cdkOption]="model" class="option">
-    
-            <mat-card class="">
-                <img src="" alt="" mat-card-image>
+            <mat-card>
                 <mat-card-header>
                     {{ model?.name }}
                 </mat-card-header>
                 <mat-card-content>
+                    
+
                     <div id="card-content">
                       {{ model?.description }}
-                      <button name="add_item" type="button" (click)="addModel([model])"><mat-icon aria-hidden="false" aria-label="Add item to editor" fontIcon="arrow_forward"></mat-icon></button>
-                  </div>
+                      <button name="add_item" type="button" (click)="editormode? addModel([model]) : downloadModel([model])"><mat-icon aria-hidden="false" aria-label="Add item to editor" [fontIcon]="getFontIcon()"></mat-icon></button>
+                    </div>
                 </mat-card-content>
             </mat-card>
     

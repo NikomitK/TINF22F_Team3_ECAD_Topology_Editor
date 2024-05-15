@@ -22,30 +22,51 @@ import { MatButton } from '@angular/material/button';
   styleUrl: './model-list.component.scss',
 })
 export class ModelListComponent {
-  @Output()
-  itemSelected = new EventEmitter<ListItemData>();
 
-  @Input() itemlist!: ListItemData[];
+    @Output()
+    itemSelected = new EventEmitter<ListItemData>();
+    
+    @Input() itemlist!: ListItemData[] 
+    
+    @Input() currentItem!: ListItemData
+    
+    @Output()
+    itemToAdd = new EventEmitter<ListItemData>();
 
-  @Input() currentItem!: ListItemData;
+    @Output()
+    timestamp: number[] = [];
 
-  @Output()
-  itemToAdd = new EventEmitter<ListItemData>();
+    @Input()
+    editormode!: boolean;
 
-  @Output()
-  timestamp: number[] = [];
+    selectItem(listItemData: readonly ListItemData[]): void {
+        this.itemSelected.emit(listItemData[0]);
+    }
 
-  selectItem(listItemData: readonly ListItemData[]) {
-    this.itemSelected.emit(listItemData[0]);
-  }
+    addModel(listItemData: readonly ListItemData[]) : void{
+        this.currentItem = listItemData[0];
+        this.itemToAdd.emit(listItemData[0]);
+        this.timestamp.push(Date.now())
+    }
 
-  addModel(listItemData: readonly ListItemData[]) {
-    this.currentItem = listItemData[0];
-    this.itemToAdd.emit(listItemData[0]);
-    this.timestamp.push(Date.now());
-  }
+    downloadModel(listItemData : readonly ListItemData[]) : void{
+        const blob = new Blob([JSON.stringify(listItemData)], { type: 'application/json' });
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'data.json';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+    }
 
-  compareId(item1: ListItemData, item2: ListItemData) {
-    return item1.id === item2.id;
-  }
+    compareId(item1: ListItemData, item2: ListItemData) : boolean {
+        return item1.id === item2.id;
+    }
+    
+    getFontIcon(): string {
+        return this.editormode ? 'arrow_forward' : 'download'
+    }
+
 }

@@ -29,6 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
+
   @Input()
   editorMode: boolean = false;
 

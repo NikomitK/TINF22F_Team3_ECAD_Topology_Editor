@@ -14,7 +14,7 @@ export class AasServiceService {
     return demoModel
   }
 
-  getItems(filter: string) {
+  getItems(filter: string) : any[]{
     const items = this.items.filter(
       (item) => [item.name,item.description].some(string => string.toLowerCase().includes(filter.toLowerCase().trim())) 
     ) 
