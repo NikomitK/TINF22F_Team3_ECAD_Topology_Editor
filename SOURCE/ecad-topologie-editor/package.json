@@ -8,7 +8,7 @@
     "build": "ng build --base-href /TINF22F_Team3_ECAD_Topology_Editor/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "test:ci": "npm run ng test  --watch=false --browsers=ChromeHeadlessCustom",
+    "test:ci": "npm ci && npm run ng test  --watch=false --browsers=ChromeHeadlessCustom",
     "build:ci": "npm ci && npm run clean && npm run test:ci && npm run build"
   },
   "private": true,
