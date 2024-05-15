@@ -18,7 +18,10 @@ Bun.serve({
     async fetch(req) {
         const url = new URL(req.url)
         if (url.pathname === '/testfiles') {
-            return new Response(JSON.stringify(await getFilesAsArray()))
+            const res = new Response(JSON.stringify(await getFilesAsArray()))
+            res.headers.set('Access-Control-Allow-Origin', '*');
+            res.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+            return res;
         }
         return new Response('Not Found')
     }
