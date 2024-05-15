@@ -36,5 +36,5 @@ export class TopologyEditorComponent {
         if (element) {
             element.remove();
         }
-
+    }
 }
