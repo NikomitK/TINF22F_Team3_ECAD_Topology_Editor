@@ -6,7 +6,7 @@
     
 
     @if (editorMode){
-    <ete-topology-editor [topologyItems]="topologyItems" [timestamp]="timestamp"></ete-topology-editor>
+    <ete-topology-editor [topologyItems]="topologyItems" (itemRemoved)="removeItem($event)"></ete-topology-editor>
     }
     @else {
 

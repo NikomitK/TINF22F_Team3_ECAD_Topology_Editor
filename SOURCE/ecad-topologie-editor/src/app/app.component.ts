@@ -8,6 +8,7 @@ import { DetailedViewComponent } from './detailed-view/detailed-view.component';
 import { ListItemData } from './shared/list-item-data';
 import { AasServiceService } from './shared/aas-service.service';
 import { timestamp } from 'rxjs';
+import { TopologyItem } from './shared/topology-item';
 
 @Component({
   selector: 'app-root',
@@ -23,6 +24,7 @@ import { timestamp } from 'rxjs';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+  
   title = 'ecad-topologie-editor';
   
   editorMode = false;
@@ -34,33 +36,28 @@ export class AppComponent {
     price: 10,
     quantity: 1,
   };
-  newItem: ListItemData = {
-    id: 1,
-    name: 'First Item',
-    description: 'This is the first demo item',
-    price: 10,
-    quantity: 1,
-  };
 
   itemList: ListItemData[] = [];
+  idIncrementor: number = 0;
 
   switchShownModel(listItemData: ListItemData) {
     this.shownModel = listItemData;
   }
   addItemToEditor(listItemData: ListItemData) {
-    this.topologyItems.push(listItemData);
-    this.timestamp.push(Date.now());
+    this.topologyItems.push({id: this.idIncrementor++, content: listItemData, position: {x: 0, y: 0}});
   }
-  timestamp: number[] = [];
-  topologyItems: any[] = [];
+
+  removeItem(id: number) {
+    this.topologyItems = this.topologyItems.filter((item) => item.id != id)
+  }
+
+  topologyItems: TopologyItem[] = [];
 
   filterItems(filter: string) {
     this.itemList = this.service.getItems(filter);
   }
   switchMode() {
     this.editorMode = !this.editorMode;
-    this.topologyItems = [];
-    this.timestamp = [];
   }
 
   constructor(private service: AasServiceService) {
