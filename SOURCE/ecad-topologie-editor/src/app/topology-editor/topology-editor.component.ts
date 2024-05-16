@@ -135,14 +135,16 @@ export class TopologyEditorComponent implements AfterViewInit,OnDestroy{
   }
 
   ngAfterViewInit(): void {
-    this.initialConnections.forEach(connection => connection.leaderLine = new LeaderLine(
-      document.getElementById(connection.end.itemId + '-' + connection.end.point),
-      document.getElementById(connection.start.itemId + '-' + connection.start.point),
-      {
-        startPlug: 'square', endPlug: 'square'
-      }
+    setTimeout(() => {
+      this.initialConnections.forEach(connection => connection.leaderLine = new LeaderLine(
+        document.getElementById(connection.end.itemId + '-' + connection.end.point),
+        document.getElementById(connection.start.itemId + '-' + connection.start.point),
+        {
+          startPlug: 'square', endPlug: 'square'
+        }
+      )
     )
-  )
+    }, 100)
     this.connections = this.initialConnections
 
   }
