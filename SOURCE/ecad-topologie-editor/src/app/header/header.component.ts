@@ -38,6 +38,8 @@ export class HeaderComponent {
 
   @Output() itemSearched = new EventEmitter<string>();
 
+  @Output() jsonSaved = new EventEmitter<never>();
+
   servers: string[] = ['test', 'test2', 'test3'];
 
   filter: string = '';
@@ -50,4 +52,5 @@ export class HeaderComponent {
     this.editorMode = !this.editorMode;
     this.modeChange.emit(this.editorMode);
   }
+  
 }
