@@ -1,11 +1,11 @@
 <div id="editor" cdkDragBoundary>
     @if(topologyItems){    
         @for (topologyItem of topologyItems; track topologyItem.id) {
-                <div class="topology-item" cdkDrag cdkDragBoundary="#editor" (cdkDragEnded)="logDrop($event.distance,topologyItem)" [cdkDragFreeDragPosition]="topologyItem.position">
-                    <button type="button" class="connection-point" id="connection-point-0">O</button>
-                    <button type="button" class="connection-point" id="connection-point-1">O</button>
-                    <button type="button" class="connection-point" id="connection-point-2">O</button>
-                    <button type="button" class="connection-point" id="connection-point-3">O</button>
+                <div class="topology-item" cdkDrag cdkDragBoundary="#editor" (cdkDragEnded)="logDrop($event.distance,topologyItem)" [cdkDragFreeDragPosition]="topologyItem.position" (cdkDragMoved)="redraw(topologyItem.id)">
+                    <button type="button" class="connection-point point-0" id="{{topologyItem.id}}-0" (click)="draw(0,topologyItem.id)"></button>
+                    <button type="button" class="connection-point point-1" id="{{topologyItem.id}}-1" (click)="draw(1,topologyItem.id)"></button>
+                    <button type="button" class="connection-point point-2" id="{{topologyItem.id}}-2" (click)="draw(2,topologyItem.id)"></button>
+                    <button type="button" class="connection-point point-3" id="{{topologyItem.id}}-3" (click)="draw(3,topologyItem.id)"></button>
                     <h3>{{topologyItem.content.id}}</h3>
                     <p>{{topologyItem.content.name}}</p>
                     <button type="button" (click)="removeItem(topologyItem)">

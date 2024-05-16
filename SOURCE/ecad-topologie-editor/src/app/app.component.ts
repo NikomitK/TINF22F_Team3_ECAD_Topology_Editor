@@ -7,8 +7,8 @@ import { DetailedViewComponent } from './detailed-view/detailed-view.component';
 
 import { ListItemData } from './shared/list-item-data';
 import { AasServiceService } from './shared/aas-service.service';
-import { timestamp } from 'rxjs';
 import { TopologyItem } from './shared/topology-item';
+import { Connection } from './shared/connection';
 
 @Component({
   selector: 'app-root',
@@ -24,6 +24,8 @@ import { TopologyItem } from './shared/topology-item';
   styleUrl: './app.component.scss',
 })
 export class AppComponent {
+
+  savedConnections : Connection[] = []
   
   title = 'ecad-topologie-editor';
   
@@ -58,6 +60,10 @@ export class AppComponent {
   }
   switchMode() {
     this.editorMode = !this.editorMode;
+  }
+
+  saveConnections(connections: Connection[]) {
+    this.savedConnections = connections
   }
 
   constructor(private service: AasServiceService) {
