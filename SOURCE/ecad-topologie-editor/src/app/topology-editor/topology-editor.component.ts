@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ModelListComponent } from '../model-list/model-list.component';
-import { DragDropModule } from '@angular/cdk/drag-drop';
+import { DragDropModule, Point } from '@angular/cdk/drag-drop';
 import { NgForOf } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { TopologyItem } from '../shared/topology-item';
 
 @Component({
   selector: 'ete-topology-editor',
@@ -19,22 +20,23 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './topology-editor.component.scss',
 })
 export class TopologyEditorComponent {
-  @Input()
-  topologyItems: any[] = [];
+
+  logDrop(distance: Point, topologyItem : TopologyItem) {
+    topologyItem.position = { 
+      x : topologyItem.position.x + distance.x, 
+      y: topologyItem.position.y + distance.y
+    } 
+  }
 
   @Input()
-  timestamp: number[] = [];
+  topologyItems: TopologyItem[] = [];
 
-  constructor() {
-        
-    }
-    
-    del(event: any) : void{
-        const button = event.target;
-        const id = button.id;
-        const element = document.getElementById(id);
-        if (element) {
-            element.remove();
-        }
-    }
+  @Output()
+  itemRemoved: EventEmitter<number> = new EventEmitter<any>()
+
+  constructor() {}
+
+  removeItem(item: TopologyItem) {
+    this.itemRemoved.emit(item.id);
+  }
 }
