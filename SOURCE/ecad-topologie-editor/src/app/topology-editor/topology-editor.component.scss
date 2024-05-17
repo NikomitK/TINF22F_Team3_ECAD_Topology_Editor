@@ -4,6 +4,13 @@
     overflow: visible;
     overflow-x: hidden;
 }
+
+@mixin line-clamp($lines) {
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 #editor {
     width: 100%;
     height: 100%;
@@ -24,6 +31,10 @@
     width: 69pt;
     height:69pt;
     position: absolute;
+
+    p {
+        @include line-clamp(2);
+    }
     
 }
 .point-0{

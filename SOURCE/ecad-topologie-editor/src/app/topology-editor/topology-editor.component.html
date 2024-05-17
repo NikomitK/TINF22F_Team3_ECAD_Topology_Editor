@@ -6,7 +6,6 @@
                     <button type="button" class="connection-point point-1" id="{{topologyItem.id}}-1" (click)="draw(1,topologyItem.id)"></button>
                     <button type="button" class="connection-point point-2" id="{{topologyItem.id}}-2" (click)="draw(2,topologyItem.id)"></button>
                     <button type="button" class="connection-point point-3" id="{{topologyItem.id}}-3" (click)="draw(3,topologyItem.id)"></button>
-                    <h3>{{topologyItem.content.id}}</h3>
                     <p>{{topologyItem.content.name}}</p>
                     <button type="button" (click)="removeItem(topologyItem)">
                         <mat-icon aria-hidden="false" aria-label="delete from editor">
