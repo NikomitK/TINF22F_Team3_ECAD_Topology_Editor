@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { AasServiceService } from '../shared/aas-service.service';
 import { ListItemData } from '../shared/list-item-data';
 import { NgxJsonViewerModule } from 'ngx-json-viewer';
 
@@ -15,10 +14,5 @@ import { NgxJsonViewerModule } from 'ngx-json-viewer';
 export class DetailedViewComponent {
 
   @Input() shownModel! : ListItemData 
-
-    test: any;
-    constructor(aasService: AasServiceService) { 
-        this.test = aasService.getAasModel();
-    }
 
 }

@@ -22,7 +22,7 @@ export class AasServiceService {
     return items.length? items : [] 
   }
 
-  //temp
+  // temporary test data
   items: ListItemData[] = [
     {
         id: 1,
