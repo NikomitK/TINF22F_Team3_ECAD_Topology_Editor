@@ -39,14 +39,15 @@ export class ModelListComponent {
     @Input()
     editormode!: boolean;
 
-    selectItem(listItemData: readonly ListItemData[]): void {
-        this.itemSelected.emit(listItemData[0]);
-    }
-
+    // add Model to canvas in Editor mode
     addModel(listItemData: readonly ListItemData[]) : void{
         this.currentItem = listItemData[0];
         this.itemToAdd.emit(listItemData[0]);
         this.timestamp.push(Date.now())
+    }
+
+    selectItem(listItemData: readonly ListItemData[]): void {
+        this.itemSelected.emit(listItemData[0]);
     }
 
     downloadModel(listItemData : readonly ListItemData[]) : void{
@@ -61,6 +62,7 @@ export class ModelListComponent {
         window.URL.revokeObjectURL(url);
     }
 
+    // the cdkListBox needs this method to keep track of the items
     compareId(item1: ListItemData, item2: ListItemData) : boolean {
         return item1.id === item2.id;
     }

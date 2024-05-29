@@ -1,8 +1,9 @@
 <mat-toolbar color="primary">
-    <mat-toolbar-row class="mat-elevation-z20 toolbar-padding">
+    <mat-toolbar-row class="toolbar-padding">
       <span id="toolbar-row-one">
           <h1 id="page-header">AAS-Topologie Editor</h1>
   
+          <!-- subscriptSizing is needed so that the inputs don't have a huge bottom padding for potential error messages -->
           <mat-form-field id="server-select" subscriptSizing="dynamic">
             <mat-label>Server</mat-label>
             <mat-select>
@@ -23,7 +24,7 @@
           <mat-icon
             matSuffix
             aria-hidden="false"
-            aria-label="Example home icon"
+            aria-label="start search"
             fontIcon="search"
             id="search_icon"
           ></mat-icon>

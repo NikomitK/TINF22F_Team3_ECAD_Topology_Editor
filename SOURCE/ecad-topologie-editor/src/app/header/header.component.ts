@@ -2,7 +2,6 @@ import {
   Component,
   EventEmitter,
   Input,
-  NgModule,
   Output,
 } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -40,6 +39,7 @@ export class HeaderComponent {
 
   @Output() jsonSaved = new EventEmitter<never>();
 
+  // TODO implement server selection
   servers: string[] = ['test', 'test2', 'test3'];
 
   filter: string = '';
