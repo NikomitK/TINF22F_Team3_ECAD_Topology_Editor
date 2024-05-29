@@ -1,0 +1,65 @@
+:host {
+    height: 100%;
+    display: grid;
+    overflow: visible;
+    overflow-x: hidden;
+}
+
+@mixin line-clamp($lines) {
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+#editor {
+    width: 100%;
+    height: 100%;
+    margin: 20px;
+}
+
+.topology-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s;
+    width: 69pt;
+    height:69pt;
+    position: absolute;
+
+    p {
+        @include line-clamp(2);
+    }
+    
+}
+.point-0{
+    top: -15%;
+}
+
+.point-1{
+   right: -15%;
+}
+
+.point-2{
+    bottom: -15%;
+}
+
+.point-3{
+    
+    left: -15%;
+}
+
+.connection-point {
+    position: absolute;  
+    width: 20px;
+    height: 20px;
+    padding: 0%;
+    border-radius: 50%;
+    cursor: pointer;
+
+}

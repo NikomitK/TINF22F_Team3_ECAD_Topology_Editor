@@ -1,4 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+:root {
+    --ngx-json-font-size : 1.3rem;
+}
+$middle-gray: #c9c9c9;
+$light-gray: #f0f0f0;
+
+@for $width from 1 through 10 {
+    .w-#{$width*10} {
+        width: $width*10%;
+    }
+}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

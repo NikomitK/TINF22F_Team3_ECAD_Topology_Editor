@@ -1,0 +1,15 @@
+$header-height: 166.4px;
+
+:host {
+    height: 100%;
+    display: grid;
+    grid-template-rows: $header-height calc(100% - $header-height);
+}
+
+#bottom-container {
+    height: 100%;
+    width: 100vw;
+    display: grid;
+    grid-template-columns:25% 75%;
+    overflow-x: hidden;
+}

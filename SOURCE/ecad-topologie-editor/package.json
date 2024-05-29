@@ -8,9 +8,8 @@
     "build": "ng build --base-href /TINF22F_Team3_ECAD_Topology_Editor/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "test:ci": "ng test  --watch=false --browsers=ChromeHeadlessCustom",
+    "test:ci": "npm ci && ng test --no-watch --no-progress --browsers=ChromeHeadless",
     "build:ci": "npm ci && npm run clean && npm run test:ci && npm run build"
-
   },
   "private": true,
   "dependencies": {
@@ -24,6 +23,8 @@
     "@angular/platform-browser": "^17.2.0",
     "@angular/platform-browser-dynamic": "^17.2.0",
     "@angular/router": "^17.2.0",
+    "leader-line": "^1.0.7",
+    "ngx-json-viewer": "^3.2.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"

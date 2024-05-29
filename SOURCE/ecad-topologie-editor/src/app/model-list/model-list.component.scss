@@ -1,0 +1,42 @@
+@import "../../styles.scss";
+
+:host {
+    position: relative;
+    height: 100%;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+
+.listbox {
+    list-style: none;
+    padding: 0.1em 0.5em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.option:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+.option[aria-selected="true"] mat-card {
+    background-color: $light-gray !important;
+}
+
+#card-content{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+button {
+    width: 30pt;
+    height: 30pt;
+    border-radius: 30%;
+    color: rgb(82, 82, 82);
+    font-size: 16px;
+    font-weight: bold;
+    
+    outline: none;
+    cursor: pointer;
+}
